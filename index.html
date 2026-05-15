@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PNH Law – Công ty Luật TNHH PNH</title>
+<meta name="description" content="Công ty Luật TNHH PNH – Tư vấn pháp lý doanh nghiệp, M&A, tranh chấp thương mại tại TP.HCM."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM
+═══════════════════════════════════════════ */
+:root {
+  /* Greens */
+  --forest:  #006839;
+  --deep:    #054222;
+  --darkest: #021F10;
+  --green-5: #F0F7F3;   /* very light green tint bg */
+  --green-10:#E3F0E9;
+
+  /* Gold */
+  --gold:    #C8991F;
+  --gold-lt: #E0AC28;
+  --gold-pale:#F7EDD0;
+
+  /* Neutrals */
+  --white:   #FFFFFF;
+  --off:     #F9F8F6;   /* warm off-white */
+  --stone:   #F2EFE9;   /* warm stone */
+
+  /* Text */
+  --ink:     #1A2219;   /* near-black with green undertone */
+  --ink-2:   #3A4E3E;   /* body text */
+  --ink-3:   #647A6A;   /* muted text */
+
+  /* Borders */
+  --bdr:     #D9E5DD;
+
+  /* Radii / Transitions */
+  --r: 4px;
+  --r2: 8px;
+  --tr: 0.28s ease;
+  --tr-slow: 0.55s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+strong { font-weight: 600; }
+
+/* ── Containers ── */
+.wrap { width: min(1160px, 90%); margin: 0 auto; }
+
+/* ── Type Scale ── */
+.eyebrow {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.h-display {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--ink);
+}
+.h-display.wh { color: var(--white); }
+.h-display em { font-style: italic; color: var(--gold); }
+.h-display span { color: var(--gold); }
+.body-lg { font-size: 16px; line-height: 1.8; color: var(--ink-2); }
+.body-md { font-size: 14.5px; line-height: 1.78; color: var(--ink-2); }
+.body-sm { font-size: 13px; line-height: 1.7; color: var(--ink-3); }
+
+/* ── Rule ── */
+.rule { width: 40px; height: 2px; background: var(--gold); margin: 18px 0; }
+.rule.c { margin: 18px auto; }
+
+/* ── Gold Ornament Divider ── */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 14px auto 4px;
+  height: 18px;
+}
+.ornament::before, .ornament::after {
+  content: '';
+  width: 52px; height: 1px;
+  opacity: .55;
+}
+.ornament::before { background: linear-gradient(to right, transparent, var(--gold)); }
+.ornament::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
+.ornament-gem {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  opacity: .7;
+  flex-shrink: 0;
+}
+.ornament-gem::before, .ornament-gem::after {
+  content: '';
+  position: absolute;
+  width: 3px; height: 1px;
+  background: var(--gold);
+  opacity: .5;
+  top: 50%;
+}
+/* dark bg variant */
+.ornament.wh::before { background: linear-gradient(to right, transparent, rgba(200,153,31,.55)); }
+.ornament.wh::after  { background: linear-gradient(to left,  transparent, rgba(200,153,31,.55)); }
+.ornament.wh .ornament-gem { opacity: .55; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: var(--r);
+  transition: var(--tr);
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--deep);
+  border-color: var(--gold);
+}
+.btn-primary:hover {
+  background: var(--gold-lt);
+  border-color: var(--gold-lt);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(200,153,31,.25);
+}
+.btn-ghost-w {
+  background: transparent;
+  color: rgba(255,255,255,.88);
+  border-color: rgba(255,255,255,.35);
+}
+.btn-ghost-w:hover {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.65);
+  transform: translateY(-1px);
+}
+.btn-ghost-g {
+  background: transparent;
+  color: var(--forest);
+  border-color: var(--forest);
+}
+.btn-ghost-g:hover {
+  background: var(--forest);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════
+   HEADER
+══════════════════════════════════════════ */
+#site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 900;
+  transition: background .4s, box-shadow .4s;
+}
+/* Gold crown-line — luxury law firm signature detail */
+#site-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(200,153,31,.0) 10%,
+    rgba(200,153,31,.75) 35%,
+    var(--gold) 50%,
+    rgba(200,153,31,.75) 65%,
+    rgba(200,153,31,.0) 90%,
+    transparent 100%
+  );
+  transition: opacity .4s;
+}
+#site-header.filled {
+  background: var(--deep);
+  box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 8px 32px rgba(0,0,0,.28);
+}
+.hdr-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.logo img {
+  width: 44px; height: 44px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.logo-text {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.logo-text b {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: .5px;
+  line-height: 1;
+}
+.logo-text small {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .85;
+}
+/* Desktop nav */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.nav-links a {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.72);
+  padding: 7px 13px;
+  border-radius: var(--r);
+  transition: var(--tr);
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 50%; right: 50%;
+  height: 1.5px;
+  background: var(--gold);
+  transition: var(--tr);
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--white);
+}
+.nav-links a:hover::after, .nav-links a.active::after {
+  left: 13px; right: 13px;
+}
+.nav-cta {
+  margin-left: 8px;
+  padding: 8px 20px !important;
+  background: var(--gold) !important;
+  color: var(--deep) !important;
+  border-radius: var(--r) !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+}
+.nav-cta::after { display: none; }
+.nav-cta:hover {
+  background: var(--gold-lt) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(200,153,31,.35);
+}
+/* Hamburger */
+.ham {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  background: none;
+  border: none;
+}
+.ham span {
+  width: 22px; height: 1.5px;
+  background: var(--white);
+  display: block;
+  transition: var(--tr);
+  transform-origin: center;
+}
+.ham.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.ham.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+/* Mobile drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--deep);
+  z-index: 899;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transform: translateX(100%);
+  transition: transform .42s cubic-bezier(.77,0,.175,1);
+}
+.mobile-drawer.open { transform: translateX(0); }
+.mobile-drawer a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.72);
+  padding: 10px 40px;
+  transition: var(--tr);
+}
+.mobile-drawer a:hover { color: var(--gold); }
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--deep);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('images/hero-bg-court.jpg'), url('images/hero-bg.png');
+  background-size: cover;
+  background-position: center top;
+  opacity: .24;
+  transform: scale(1.06);
+  will-change: transform;
+}
+/* Grain texture overlay on hero for luxury depth */
+#hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+}
+.hero-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(5,66,34,.97) 0%,
+    rgba(3,43,21,.90) 45%,
+    rgba(0,80,45,.72) 100%
+  );
+}
+/* Decorative right panel */
+.hero-visual {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 44%;
+  overflow: hidden;
+}
+.hero-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: .35;
+  filter: grayscale(15%) contrast(1.05);
+}
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--deep) 0%, transparent 60%);
+  z-index: 1;
+}
+/* Floating particles */
+.particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.particle {
+  position: absolute;
+  width: 1.5px; height: 1.5px;
+  border-radius: 50%;
+  background: rgba(200,153,31,.5);
+  animation: rise linear infinite;
+}
+@keyframes rise {
+  0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: .2; }
+  100% { transform: translateY(-60px) translateX(var(--tx)); opacity: 0; }
+}
+/* Hero content */
+.hero-body { position: relative; z-index: 2; padding: 130px 0 106px; max-width: 620px; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(200,153,31,.12);
+  border: 1px solid rgba(200,153,31,.3);
+  border-radius: 100px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  animation: fadeUp .7s both .15s;
+}
+.hero-badge i { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{ opacity:1; transform:scale(1) } 50%{ opacity:.3; transform:scale(1.6) } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 5.8vw, 5.5rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 16px;
+  animation: fadeUp .75s both .3s;
+}
+.hero-h1 em { font-style: normal; color: var(--gold); }
+.hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-style: italic;
+  color: rgba(255,255,255,.55);
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+  animation: fadeUp .75s both .44s;
+}
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(255,255,255,.55);
+  max-width: 500px;
+  margin-bottom: 44px;
+  animation: fadeUp .75s both .57s;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp .75s both .7s; }
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 84px;
+  right: 52px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeUp .75s both 1s;
+}
+.scroll-cue-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2.2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  50.1%{ transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-cue span { font-size: 8.5px; letter-spacing: 3px; color: rgba(255,255,255,.28); text-transform: uppercase; writing-mode: vertical-lr; }
+/* Hero corner ornament — top-right gold frame lines */
+.hero-corner {
+  position: absolute;
+  top: 94px; right: 52px;
+  z-index: 2;
+  width: 56px; height: 56px;
+  pointer-events: none;
+  opacity: .38;
+}
+.hero-corner::before, .hero-corner::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+}
+.hero-corner::before { top: 0; right: 0; width: 1px; height: 100%; }
+.hero-corner::after  { top: 0; right: 0; width: 100%; height: 1px; }
+.hero-corner-bl {
+  position: absolute;
+  bottom: 94px; left: 52px;
+  z-index: 2;
+  width: 56px; height: 56px;
+  pointer-events: none;
+  opacity: .38;
+}
+.hero-corner-bl::before, .hero-corner-bl::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+}
+.hero-corner-bl::before { bottom: 0; left: 0; width: 1px; height: 100%; }
+.hero-corner-bl::after  { bottom: 0; left: 0; width: 100%; height: 1px; }
+@media (max-width: 768px) {
+  .hero-corner, .hero-corner-bl { display: none; }
+}
+
+/* Bottom info strip */
+.hero-strip {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 3;
+  background: rgba(2,31,16,.9);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(200,153,31,.15);
+}
+.hero-strip-inner { display: grid; grid-template-columns: repeat(3,1fr); }
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 28px;
+  border-right: 1px solid rgba(255,255,255,.06);
+  transition: var(--tr);
+}
+.strip-item:last-child { border-right: none; }
+.strip-item:hover { background: rgba(200,153,31,.05); }
+.strip-icon { font-size: 18px; opacity: .7; flex-shrink: 0; }
+.strip-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2px;
+}
+.strip-value { font-size: 13px; color: rgba(255,255,255,.72); font-weight: 500; line-height: 1.4; }
+
+/* ══════════════════════════════════════════
+   STATS
+══════════════════════════════════════════ */
+#stats {
+  background: linear-gradient(90deg, #B8880F 0%, var(--gold) 30%, #E0AC28 60%, #C8991F 100%);
+  position: relative;
+  overflow: hidden;
+}
+/* Gold shimmer sweep across stats bar */
+#stats::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    transparent 30%,
+    rgba(255,255,255,.12) 50%,
+    transparent 70%
+  );
+  animation: shimmer 5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes shimmer {
+  0%   { transform: translateX(-110%); }
+  40%,100% { transform: translateX(110%); }
+}
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat {
+  padding: 36px 20px;
+  text-align: center;
+  border-right: 1px solid rgba(5,66,34,.12);
+  transition: background var(--tr);
+}
+.stat:last-child { border-right: none; }
+.stat:hover { background: rgba(5,66,34,.08); }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--deep);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--deep);
+  opacity: .68;
+  margin-top: 5px;
+}
+
+/* ══════════════════════════════════════════
+   ABOUT
+══════════════════════════════════════════ */
+#about { padding: 112px 0; background: var(--white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-media { position: relative; }
+.about-media img {
+  width: 100%; height: 580px;
+  object-fit: cover;
+  border-radius: var(--r2);
+  position: relative; z-index: 1;
+}
+.about-media-corner {
+  position: absolute;
+  top: -16px; left: -16px;
+  width: 88px; height: 88px;
+  border: 2px solid var(--gold);
+  border-radius: var(--r2);
+  opacity: .45; z-index: 0;
+}
+.about-badge {
+  position: absolute;
+  bottom: -22px; right: -22px;
+  background: var(--gold);
+  color: var(--deep);
+  padding: 24px 28px;
+  border-radius: var(--r2);
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 12px 40px rgba(200,153,31,.3);
+}
+.about-badge .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  display: block;
+}
+.about-badge .sub {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: .75;
+  margin-top: 3px;
+  display: block;
+}
+.about-content { padding-left: 8px; }
+.about-content .body-lg { margin: 18px 0 26px; }
+.check-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+.check-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  background: var(--green-10);
+  border: 1.5px solid var(--forest);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  color: var(--forest);
+  font-size: 10px;
+  font-weight: 700;
+}
+.blockquote {
+  margin: 24px 0;
+  padding: 18px 22px 18px 20px;
+  background: var(--green-5);
+  border-left: 3px solid var(--forest);
+  border-radius: 0 var(--r) var(--r) 0;
+}
+.blockquote p {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-2);
+  line-height: 1.8;
+}
+.contact-pills { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--tr);
+  background: var(--stone);
+  color: var(--ink-2);
+  border: 1px solid var(--bdr);
+}
+.pill:hover {
+  background: var(--forest);
+  color: var(--white);
+  border-color: var(--forest);
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════
+   TEAM SLIDER
+══════════════════════════════════════════ */
+#team {
+  padding: 112px 0;
+  background: var(--deep);
+  position: relative;
+  overflow: hidden;
+}
+#team::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('images/team-bg.jpg') center/cover no-repeat;
+  opacity: .06;
+}
+/* gold top line on team section */
+#team::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(200,153,31,.0) 8%,
+    rgba(200,153,31,.4) 30%, rgba(200,153,31,.4) 70%,
+    rgba(200,153,31,.0) 92%, transparent 100%
+  );
+  z-index: 1;
+}
+.team-head { text-align: center; margin-bottom: 56px; position: relative; }
+.team-head .body-lg { color: rgba(255,255,255,.52); max-width: 520px; margin: 12px auto 0; }
+
+/* Slider shell */
+.slider-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.09);
+  min-height: 560px;
+}
+/* Photo column */
+.slider-photos { position: relative; overflow: hidden; background: rgba(0,0,0,.2); }
+.s-photo {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity .62s ease;
+}
+.s-photo.on { opacity: 1; }
+.s-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transform: scale(1.03);
+  transition: transform .62s ease;
+}
+.s-photo.on img { transform: scale(1); }
+.s-photo-vignette {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right,  transparent 55%, var(--deep) 100%),
+    linear-gradient(to top,    rgba(2,31,16,.75) 0%, transparent 45%);
+}
+/* Mobile quick-info bar – shown only on small screens below photo */
+.mobile-member-bar {
+  display: none;
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 3;
+  background: linear-gradient(to top, rgba(2,31,16,.96) 60%, transparent 100%);
+  padding: 40px 20px 18px;
+  pointer-events: none;
+}
+.mmb-role  { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); opacity: .85; display: block; margin-bottom: 4px; }
+.mmb-name  { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); line-height: 1.1; display: block; margin-bottom: 5px; }
+.mmb-title { font-size: 11px; color: rgba(255,255,255,.5); display: block; }
+@media (max-width: 1024px) {
+  .mobile-member-bar { display: block; }
+  .slider-photos { position: relative; } /* needed for absolute child */
+  .mmb { display: none; }
+  .mmb.on { display: block; }
+}
+
+/* Info column */
+.slider-info-col {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.slider-panels { flex: 1; position: relative; overflow: hidden; }
+.s-panel {
+  position: absolute; inset: 0;
+  padding: 40px 44px 28px;
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .52s ease, transform .52s ease;
+  pointer-events: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(200,153,31,.3) transparent;
+}
+.s-panel::-webkit-scrollbar { width: 3px; }
+.s-panel::-webkit-scrollbar-thumb { background: rgba(200,153,31,.3); border-radius: 2px; }
+.s-panel.on { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+/* Panel typography */
+.sp-role {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.sp-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.sp-title {
+  font-size: 12px;
+  color: rgba(255,255,255,.38);
+  letter-spacing: .6px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+.sp-bio {
+  font-size: 13.5px;
+  line-height: 1.82;
+  color: rgba(255,255,255,.62);
+  margin-bottom: 14px;
+}
+.sp-highlight {
+  padding: 12px 16px;
+  background: rgba(200,153,31,.08);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 var(--r) var(--r) 0;
+  margin-bottom: 22px;
+}
+.sp-highlight p {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255,255,255,.55);
+  line-height: 1.72;
+}
+.sp-section { margin-bottom: 16px; }
+.sp-section-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(200,153,31,.7);
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sp-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,.07);
+  max-width: 120px;
+}
+.sp-list { display: flex; flex-direction: column; gap: 5px; }
+.sp-list li {
+  font-size: 12.5px;
+  color: rgba(255,255,255,.52);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.6;
+}
+.sp-list li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: rgba(200,153,31,.5);
+  font-size: 9px;
+  top: 5px;
+}
+.sp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 18px; }
+.sp-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  padding: 4px 11px;
+  border-radius: 100px;
+  background: rgba(200,153,31,.09);
+  color: var(--gold);
+  border: 1px solid rgba(200,153,31,.2);
+}
+
+/* Controls bar */
+.slider-controls {
+  padding: 16px 44px 22px;
+  background: rgba(0,0,0,.18);
+  border-top: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.slider-thumbs { display: flex; gap: 8px; }
+.s-thumb {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: var(--tr);
+  opacity: .45;
+  flex-shrink: 0;
+}
+.s-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.s-thumb.on { border-color: var(--gold); opacity: 1; transform: scale(1.1); }
+.s-thumb:hover:not(.on) { opacity: .75; border-color: rgba(200,153,31,.4); }
+.slider-nav { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.s-prog-track {
+  width: 80px; height: 1.5px;
+  background: rgba(255,255,255,.1);
+  border-radius: 1px; overflow: hidden;
+}
+.s-prog-fill { height: 100%; background: var(--gold); width: 0; transition: width .12s linear; }
+.s-count { font-size: 10.5px; font-weight: 500; color: rgba(255,255,255,.3); letter-spacing: 2px; }
+.s-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--tr);
+  font-size: 14px;
+  line-height: 1;
+}
+.s-btn:hover { background: var(--gold); color: var(--deep); border-color: var(--gold); }
+
+/* ══════════════════════════════════════════
+   SERVICES
+══════════════════════════════════════════ */
+#services { padding: 112px 0; background: var(--off); }
+.section-head { text-align: center; margin-bottom: 60px; }
+.section-head .body-lg { max-width: 520px; margin: 14px auto 0; }
+.sv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.sv-card {
+  background: var(--white);
+  border-radius: var(--r2);
+  padding: 32px 26px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--tr-slow);
+  border: 1px solid var(--bdr);
+  cursor: default;
+}
+.sv-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--forest), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--tr-slow);
+}
+.sv-card:hover {
+  transform: translateY(-6px);
+  border-color: transparent;
+  box-shadow: 0 20px 48px rgba(0,80,40,.1);
+}
+.sv-card:hover::before { transform: scaleX(1); }
+.sv-num {
+  position: absolute;
+  top: 18px; right: 22px;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: var(--bdr);
+  line-height: 1;
+  transition: var(--tr);
+}
+.sv-card:hover .sv-num { color: var(--gold-pale); }
+.sv-icon {
+  width: 50px; height: 50px;
+  border-radius: var(--r2);
+  background: var(--green-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 18px;
+  transition: var(--tr);
+}
+.sv-card:hover .sv-icon { background: var(--forest); }
+.sv-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 9px;
+  line-height: 1.3;
+}
+.sv-desc { font-size: 13.5px; color: var(--ink-3); line-height: 1.75; }
+.sv-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 16px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: .3px;
+  transition: var(--tr);
+}
+.sv-more span { transition: transform var(--tr); }
+.sv-card:hover .sv-more span { transform: translateX(4px); }
+
+/* ══════════════════════════════════════════
+   STRENGTHS
+══════════════════════════════════════════ */
+#strengths { padding: 112px 0; background: var(--white); }
+.str-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.str-media { position: relative; }
+.str-media img {
+  width: 100%; height: 520px;
+  object-fit: cover;
+  border-radius: var(--r2);
+}
+.str-media-corner {
+  position: absolute;
+  top: -14px; left: -14px;
+  width: 88px; height: 88px;
+  border: 2px solid var(--gold);
+  border-radius: var(--r2);
+  opacity: .4; z-index: -1;
+}
+.str-badge {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  background: var(--deep);
+  padding: 20px 24px;
+  border-radius: var(--r2);
+  border: 1px solid rgba(200,153,31,.25);
+}
+.str-badge .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block; line-height: 1;
+}
+.str-badge .sub {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  display: block; margin-top: 3px;
+}
+.str-content .body-lg { margin: 14px 0 0; }
+.str-items { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+.str-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  border-radius: var(--r2);
+  background: var(--green-5);
+  border: 1px solid transparent;
+  border-left: 2px solid var(--forest);
+  transition: var(--tr);
+  cursor: default;
+}
+.str-item:hover {
+  background: var(--green-10);
+  border-color: transparent;
+  border-left-color: var(--gold);
+  transform: translateX(6px);
+}
+.str-item-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  min-width: 32px;
+  flex-shrink: 0;
+}
+.str-item-text h4 {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-bottom: 5px;
+}
+.str-item-text p { font-size: 13.5px; color: var(--ink-2); line-height: 1.68; }
+
+/* ══════════════════════════════════════════
+   TRAINING
+══════════════════════════════════════════ */
+#training { padding: 112px 0; background: var(--deep); position: relative; overflow: hidden; }
+#training::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('images/banner-court12.png') center/cover no-repeat;
+  opacity: .05;
+}
+.training-head { text-align: center; margin-bottom: 56px; position: relative; }
+.training-head .body-lg { color: rgba(255,255,255,.5); max-width: 520px; margin: 12px auto 0; }
+.training-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; position: relative; }
+.tr-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r2);
+  padding: 30px 26px;
+  transition: var(--tr);
+  border-top: 2px solid rgba(200,153,31,.25);
+}
+.tr-card:hover {
+  background: rgba(255,255,255,.07);
+  border-top-color: var(--gold);
+  transform: translateY(-5px);
+}
+.tr-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  margin-bottom: 16px;
+}
+.tr-card ul { display: flex; flex-direction: column; gap: 7px; }
+.tr-card li {
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.65;
+}
+.tr-card li::before {
+  content: '›';
+  position: absolute; left: 0;
+  color: var(--gold);
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+}
+
+/* ══════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════ */
+#contact { padding: 112px 0; background: var(--stone); }
+.contact-head { text-align: center; margin-bottom: 60px; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.contact-items { display: flex; flex-direction: column; gap: 20px; }
+.contact-item { display: flex; gap: 14px; align-items: flex-start; }
+.c-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.c-text .lbl { color: var(--forest); margin-bottom: 2px; }
+.c-text p, .c-text a { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+.c-text a:hover { color: var(--forest); }
+.privacy-note {
+  margin-top: 24px;
+  padding: 15px 17px;
+  background: var(--deep);
+  border-radius: var(--r2);
+}
+.privacy-note p { font-size: 12.5px; color: rgba(255,255,255,.48); line-height: 1.7; }
+/* Form */
+.contact-form {
+  background: var(--deep);
+  border-radius: 12px;
+  padding: 42px;
+}
+.contact-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 26px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { margin-bottom: 14px; }
+.form-group label {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: var(--tr);
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,.22); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(200,153,31,.6);
+  background: rgba(200,153,31,.04);
+}
+.form-group select option { background: var(--deep); color: var(--white); }
+.form-group textarea { resize: vertical; min-height: 104px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--gold);
+  color: var(--deep);
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: var(--tr);
+}
+.form-submit:hover {
+  background: var(--gold-lt);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(200,153,31,.25);
+}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+#footer {
+  background: var(--darkest);
+  padding: 60px 0 28px;
+  position: relative;
+}
+#footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(200,153,31,.0) 5%,
+    rgba(200,153,31,.55) 30%,
+    rgba(200,153,31,.55) 70%,
+    rgba(200,153,31,.0) 95%,
+    transparent 100%
+  );
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  margin-bottom: 28px;
+}
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.85; margin-top: 14px; max-width: 280px; }
+.footer-col h4 {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .75;
+  margin-bottom: 16px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul li a { font-size: 13px; color: rgba(255,255,255,.4); transition: var(--tr); }
+.footer-col ul li a:hover { color: rgba(255,255,255,.82); padding-left: 4px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.footer-bottom p { font-size: 11.5px; color: rgba(255,255,255,.22); }
+
+/* ══════════════════════════════════════════
+   QUOTE BANNER – Parallax luxury section
+══════════════════════════════════════════ */
+.quote-banner {
+  position: relative;
+  padding: 124px 0;
+  background-image: url('images/quote-bg.jpg'), url('images/banner-court1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+/* fallback on mobile: fixed attachment causes glitch */
+@media (max-width: 900px) {
+  .quote-banner { background-attachment: scroll; }
+}
+.qb-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(2,31,16,.94) 0%,
+    rgba(4,52,28,.88) 50%,
+    rgba(2,31,16,.94) 100%
+  );
+}
+/* thin gold lines top & bottom */
+.quote-banner::before, .quote-banner::after {
+  content: '';
+  position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(200,153,31,.45) 25%,
+    rgba(200,153,31,.45) 75%, transparent 100%);
+}
+.quote-banner::before { top: 0; }
+.quote-banner::after  { bottom: 0; }
+.qb-inner {
+  position: relative; z-index: 1;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.qb-icon {
+  display: block;
+  font-size: 2.8rem;
+  color: var(--gold);
+  opacity: .5;
+  margin-bottom: 26px;
+  filter: drop-shadow(0 0 14px rgba(200,153,31,.3));
+  animation: float 4.5s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+.qb-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 2.8vw, 1.95rem);
+  font-style: italic;
+  color: rgba(255,255,255,.92);
+  line-height: 1.62;
+  letter-spacing: .25px;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 24px rgba(0,0,0,.45);
+}
+.qb-line {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 20px;
+}
+.qb-cite {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .68;
+}
+
+/* ══════════════════════════════════════════
+   SCROLL ANIMATIONS
+══════════════════════════════════════════ */
+.anim { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.anim-l { opacity: 0; transform: translateX(-32px); transition: opacity .7s ease, transform .7s ease; }
+.anim-r { opacity: 0; transform: translateX(32px); transition: opacity .7s ease, transform .7s ease; }
+.anim.show, .anim-l.show, .anim-r.show { opacity: 1; transform: translate(0); }
+.delay-1 { transition-delay: .1s; }
+.delay-2 { transition-delay: .2s; }
+.delay-3 { transition-delay: .3s; }
+.delay-4 { transition-delay: .4s; }
+
+/* ══════════════════════════════════════════
+   NEWS SECTION
+══════════════════════════════════════════ */
+#news { padding: 112px 0; background: var(--off); }
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 0;
+}
+.news-card {
+  background: var(--white);
+  border-radius: var(--r2);
+  overflow: hidden;
+  border: 1px solid var(--bdr);
+  transition: var(--tr-slow);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,80,40,.1);
+  border-color: transparent;
+}
+.news-thumb {
+  width: 100%; height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform .55s ease;
+}
+.news-card:hover .news-thumb { transform: scale(1.04); }
+.news-thumb-wrap {
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+.news-thumb-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--forest), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--tr-slow);
+}
+.news-card:hover .news-thumb-wrap::after { transform: scaleX(1); }
+.news-body {
+  padding: 22px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.news-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: var(--green-5);
+  border: 1px solid var(--bdr);
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+.news-date {
+  font-size: 11px;
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+.news-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 9px;
+  transition: color var(--tr);
+}
+.news-card:hover .news-title { color: var(--forest); }
+.news-summary {
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.72;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 14px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: .3px;
+  transition: var(--tr);
+}
+.news-read span { transition: transform var(--tr); }
+.news-card:hover .news-read span { transform: translateX(4px); }
+.news-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+/* Loading skeleton */
+.news-skeleton {
+  background: var(--white);
+  border-radius: var(--r2);
+  overflow: hidden;
+  border: 1px solid var(--bdr);
+}
+.skel-img  { height: 200px; background: var(--stone); }
+.skel-body { padding: 22px; }
+.skel-line {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--stone) 25%, var(--bdr) 50%, var(--stone) 75%);
+  background-size: 200% 100%;
+  animation: skelShimmer 1.4s infinite;
+  margin-bottom: 10px;
+}
+@keyframes skelShimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.skel-line.w60 { width: 60%; }
+.skel-line.w80 { width: 80%; }
+@media (max-width: 900px) { .news-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .news-grid { grid-template-columns: 1fr; } }
+
+/* ── Subtle paper-grain texture on light sections ── */
+#about, #services, #news, #contact {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23g)' opacity='.045'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 220px 220px;
+}
+#about    { background-color: var(--white); }
+#services { background-color: var(--off); }
+#news     { background-color: var(--off); }
+#contact  { background-color: var(--stone); }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .about-grid, .str-grid { grid-template-columns: 1fr; gap: 52px; }
+  .about-media { order: -1; }
+  .about-content { padding-left: 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  /* Team slider – single column mobile */
+  .slider-shell { grid-template-columns: 1fr; min-height: auto; }
+  .slider-photos { height: 300px; }
+  .slider-info-col { overflow: visible; }
+  /* panels use position:absolute so need explicit height on parent */
+  .slider-panels { min-height: 520px; height: 520px; overflow: hidden; }
+  .s-panel { padding: 24px 28px 20px; }
+  .slider-controls { padding: 14px 28px 18px; }
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .ham { display: flex; }
+  .hero-strip-inner { grid-template-columns: 1fr; }
+  .strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.05); }
+}
+@media (max-width: 768px) {
+  .stats-row { grid-template-columns: repeat(2,1fr); }
+  .sv-grid { grid-template-columns: 1fr; }
+  .training-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-strip-inner { display: none; }
+  .about-badge { bottom: -8px; right: 10px; }
+  .scroll-cue { display: none; }
+}
+@media (max-width: 520px) {
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { text-align: center; justify-content: center; }
+  .sp-name { font-size: 1.6rem; }
+  .sp-bio { font-size: 13px; }
+  .s-panel { padding: 16px 16px 14px; }
+  .slider-panels { min-height: 560px; height: 560px; }
+  .slider-controls { padding: 10px 14px 14px; flex-wrap: wrap; }
+  .slider-thumbs { gap: 5px; }
+  .s-thumb { width: 34px; height: 34px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header id="site-header">
+  <div class="wrap">
+    <div class="hdr-inner">
+      <a href="#hero" class="logo">
+        <img src="images/logo.png" onerror="this.style.display='none'" alt="PNH Law"/>
+        <div class="logo-text">
+          <b>PNH LAW</b>
+          <small>Công ty Luật TNHH PNH</small>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">Về chúng tôi</a>
+        <a href="#team">Đội ngũ</a>
+        <a href="#services">Lĩnh vực</a>
+        <a href="#strengths">Thế mạnh</a>
+        <a href="#training">Đào tạo</a>
+        <a href="#news">Tin tức</a>
+        <a href="#contact" class="nav-cta">Liên hệ</a>
+      </div>
+      <button class="ham" id="hamBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-drawer" id="mDrawer">
+  <a href="#about"     class="mdl">Về chúng tôi</a>
+  <a href="#team"      class="mdl">Đội ngũ</a>
+  <a href="#services"  class="mdl">Lĩnh vực</a>
+  <a href="#strengths" class="mdl">Thế mạnh</a>
+  <a href="#training"  class="mdl">Đào tạo</a>
+  <a href="#news"      class="mdl">Tin tức</a>
+  <a href="#contact"   class="mdl">Liên hệ</a>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-visual">
+    <img src="images/hero-visual.png" alt="Công lý"/>
+  </div>
+  <div class="hero-corner"></div>
+  <div class="hero-corner-bl"></div>
+  <div class="particles" id="particlesCt"></div>
+  <div class="wrap">
+    <div class="hero-body">
+      <div class="hero-badge"><i></i> Thành lập năm 2021</div>
+      <h1 class="hero-h1">Công ty Luật<br/><em>TNHH PNH</em></h1>
+      <p class="hero-sub">"Đức Trọng – Pháp Minh – Nhân Hòa"</p>
+      <p class="hero-desc">Đội ngũ luật sư và cố vấn pháp lý giàu kinh nghiệm, chuyên sâu trong tư vấn doanh nghiệp, M&amp;A, tranh chấp thương mại và đào tạo pháp lý tại Việt Nam.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Đăng ký tư vấn</a>
+        <a href="#about"   class="btn btn-ghost-w">Tìm hiểu thêm</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="wrap" style="padding:0;max-width:100%;width:100%">
+      <div class="hero-strip-inner">
+        <div class="strip-item">
+          <div class="strip-icon">📍</div>
+          <div><span class="strip-label">Địa chỉ</span><div class="strip-value">Tòa nhà Bibica, 443 Lý Thường Kiệt, Q.Tân Bình, TP.HCM</div></div>
+        </div>
+        <div class="strip-item">
+          <div class="strip-icon">📞</div>
+          <div><span class="strip-label">Hotline 24/7</span><div class="strip-value">090 207 1412</div></div>
+        </div>
+        <div class="strip-item">
+          <div class="strip-icon">✉️</div>
+          <div><span class="strip-label">Email</span><div class="strip-value">pnhlawfirm@gmail.com</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <div class="scroll-cue-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ════════ STATS ════════ -->
+<section id="stats">
+  <div style="max-width:100%">
+    <div class="stats-row">
+      <div class="stat anim delay-1"><div class="stat-num" data-v="19" data-s="+">19+</div><div class="stat-label">Năm kinh nghiệm</div></div>
+      <div class="stat anim delay-2"><div class="stat-num" data-v="90" data-s="%">90%</div><div class="stat-label">Tỉ lệ thành công</div></div>
+      <div class="stat anim delay-3"><div class="stat-num" data-v="500" data-s="+">500+</div><div class="stat-label">Khách hàng</div></div>
+      <div class="stat anim delay-4"><div class="stat-num" data-v="0" data-s="24/7">24/7</div><div class="stat-label">Hỗ trợ tư vấn</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ABOUT ════════ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-media anim-l">
+        <div class="about-media-corner"></div>
+        <img src="images/about-img.jpg" alt="PNH Law Office"/>
+        <div class="about-badge">
+          <span class="num">2021</span>
+          <span class="sub">Thành lập</span>
+        </div>
+      </div>
+      <div class="about-content anim-r">
+        <span class="eyebrow">Về chúng tôi</span>
+        <h2 class="h-display"><span>PNH</span> Law</h2>
+        <div class="ornament"><div class="ornament-gem"></div></div>
+        <p class="body-lg">
+          <strong>PNH LAW</strong> được đồng sáng lập bởi Luật sư <strong>Nguyễn Minh Hòa</strong> và Luật sư <strong>Phan Công Viên</strong> — hai chuyên gia pháp lý với hơn 30 năm kinh nghiệm tổng hợp tại các tập đoàn lớn và công ty luật hàng đầu Việt Nam.
+        </p>
+        <ul class="check-list">
+          <li><div class="check-icon">✓</div>Hơn 18 năm kinh nghiệm tranh tụng và tư vấn pháp lý doanh nghiệp</li>
+          <li><div class="check-icon">✓</div>Từng đảm nhận pháp chế tại Agribank, BIBICA, PAN GROUP, VIFON, DCI</li>
+          <li><div class="check-icon">✓</div>Thành viên Liên Đoàn Luật Sư Việt Nam &amp; Đoàn Luật Sư TP.HCM</li>
+          <li><div class="check-icon">✓</div>Chuyên sâu M&amp;A, tái cơ cấu doanh nghiệp và tranh chấp giá trị lớn</li>
+        </ul>
+        <div class="blockquote">
+          <p>"Cơ hội được cùng làm việc và hỗ trợ khách hàng giải quyết các vấn đề pháp lý để đem lại sự hài lòng và hiệu quả cao nhất chính là kim chỉ nam hành động của PNH LAW."</p>
+        </div>
+        <div class="contact-pills">
+          <a href="tel:0902071412"          class="pill">📞 090 207 1412</a>
+          <a href="mailto:pnhlawfirm@gmail.com" class="pill">✉️ pnhlawfirm@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TEAM ════════ -->
+<section id="team">
+  <div class="wrap">
+    <div class="team-head anim">
+      <span class="eyebrow">Đội ngũ chủ chốt</span>
+      <h2 class="h-display wh" style="margin-top:8px">Lãnh đạo &amp; <em>Cố vấn</em></h2>
+      <div class="ornament wh"><div class="ornament-gem"></div></div>
+      <p class="body-lg">Đội ngũ luật sư và tiến sĩ pháp lý đầy kinh nghiệm, sẵn sàng đồng hành cùng doanh nghiệp trong mọi thách thức pháp lý.</p>
+    </div>
+
+    <div class="slider-shell anim">
+      <!-- Photos -->
+      <div class="slider-photos" id="sliderPhotos">
+        <div class="s-photo on">
+          <img src="images/team-hoa.png" alt="Nguyễn Minh Hòa"/>
+          <div class="s-photo-vignette"></div>
+        </div>
+        <div class="s-photo">
+          <img src="images/team-vien.png" alt="Phan Công Viên"/>
+          <div class="s-photo-vignette"></div>
+        </div>
+        <div class="s-photo">
+          <img src="images/team-ngoc.png" alt="Nguyễn Trường Ngọc"/>
+          <div class="s-photo-vignette"></div>
+        </div>
+        <div class="s-photo">
+          <img src="images/team-trang.png" alt="Nguyễn Thị Thu Trang"/>
+          <div class="s-photo-vignette"></div>
+        </div>
+        <div class="s-photo">
+          <img src="images/team-nga.png" alt="Bùi Thị Hằng Nga"/>
+          <div class="s-photo-vignette"></div>
+        </div>
+        <div class="s-photo">
+          <img src="images/team-nam.png" alt="Nguyễn Danh Nam"/>
+          <div class="s-photo-vignette"></div>
+        </div>
+        <!-- Mobile name overlay – shown only on ≤1024px -->
+        <div class="mobile-member-bar">
+          <div class="mmb on" id="mmb0"><span class="mmb-role">Giám đốc Công ty</span><span class="mmb-name">Nguyễn Minh Hòa</span><span class="mmb-title">Luật sư · Thành viên sáng lập · 19+ năm kinh nghiệm</span></div>
+          <div class="mmb"     id="mmb1"><span class="mmb-role">Luật sư Điều hành</span><span class="mmb-name">Phan Công Viên</span><span class="mmb-title">Luật sư · Thành viên sáng lập · M&amp;A &amp; Đầu tư</span></div>
+          <div class="mmb"     id="mmb2"><span class="mmb-role">Cố vấn Pháp lý</span><span class="mmb-name">Nguyễn Trường Ngọc</span><span class="mmb-title">Tiến sĩ Luật · Chuyên gia Pháp lý Doanh nghiệp</span></div>
+          <div class="mmb"     id="mmb3"><span class="mmb-role">Luật sư</span><span class="mmb-name">Nguyễn Thị Thu Trang</span><span class="mmb-title">Luật sư · Lao động &amp; Hợp đồng thương mại</span></div>
+          <div class="mmb"     id="mmb4"><span class="mmb-role">Luật sư</span><span class="mmb-name">Bùi Thị Hằng Nga</span><span class="mmb-title">Luật sư · Tố tụng &amp; Tranh chấp dân sự</span></div>
+          <div class="mmb"     id="mmb5"><span class="mmb-role">Chuyên viên Pháp lý</span><span class="mmb-name">Nguyễn Danh Nam</span><span class="mmb-title">Chuyên viên · Pháp lý Doanh nghiệp</span></div>
+        </div>
+      </div>
+
+      <!-- Info panels -->
+      <div class="slider-info-col">
+        <div class="slider-panels" id="sliderPanels">
+
+          <!-- 0 Hòa -->
+          <div class="s-panel on">
+            <div class="sp-role">Giám đốc Công ty</div>
+            <div class="sp-name">Nguyễn Minh Hòa</div>
+            <div class="sp-title">Luật sư – Thành viên sáng lập PNH LAW</div>
+            <p class="sp-bio">Hơn <strong>19 năm kinh nghiệm</strong> làm Luật sư cao cấp, Chuyên viên Ban Bồi thường GPMB và Ban Pháp chế tại Agribank. Từng là Luật sư cao cấp tại Công ty Luật Hoàng Minh Tâm, Bross &amp; Partner, ANZ. Thế mạnh tranh tụng tòa án, tranh chấp đất đai, tư vấn ngân hàng và hợp đồng thương mại.</p>
+            <div class="sp-highlight"><p>90% khách hàng sau khi làm việc với Ls. Hòa đều trở thành khách hàng thân thiết nhờ kết quả vụ việc luôn làm hài lòng.</p></div>
+            <div class="sp-section">
+              <div class="sp-section-title">Đào tạo</div>
+              <ul class="sp-list">
+                <li>Cử nhân Luật – Đại học Luật TP.HCM</li>
+                <li>Khóa đào tạo tư vấn &amp; giải quyết tranh chấp – Liên đoàn Luật sư Việt Nam</li>
+                <li>Học Viện Tư Pháp – Bộ Tư pháp</li>
+              </ul>
+            </div>
+            <div class="sp-section">
+              <div class="sp-section-title">Tổ chức nghề nghiệp</div>
+              <ul class="sp-list">
+                <li>Thành viên Liên Đoàn Luật Sư Việt Nam</li>
+                <li>Thành viên Đoàn Luật sư TP.HCM</li>
+              </ul>
+            </div>
+            <div class="sp-section">
+              <div class="sp-section-title">Vụ việc tiêu biểu</div>
+              <ul class="sp-list">
+                <li>Tranh chấp bảo hiểm giữa Công ty BIBICA và PVI</li>
+                <li>Công ty Công Ích Quận 1 – hợp đồng đầu tư bất động sản</li>
+                <li>Công ty CP Descon – tranh chấp bất động sản</li>
+                <li>TNHH Dệt TexHong Ngân Long – hợp đồng thuê đất KCN</li>
+                <li>Trường Trung Cấp Bến Thành, Thời Báo Sài Gòn Times và nhiều vụ khác</li>
+              </ul>
+            </div>
+            <div class="sp-tags"><span class="sp-tag">Tranh tụng</span><span class="sp-tag">Đất đai</span><span class="sp-tag">Ngân hàng</span><span class="sp-tag">Hợp đồng</span></div>
+          </div>
+
+          <!-- 1 Viên -->
+          <div class="s-panel">
+            <div class="sp-role">Luật sư Điều hành</div>
+            <div class="sp-name">Phan Công Viên</div>
+            <div class="sp-title">Luật sư – Thành viên sáng lập PNH LAW</div>
+            <p class="sp-bio">Hơn <strong>15 năm kinh nghiệm</strong> với vai trò GĐ/PGĐ Khối/Trưởng Ban Pháp chế tại Công ty CP BIBICA, PAN GROUP, VIFON, NTD GROUP, DAEWOO-HANEL, DCI GROUP. Đảm nhiệm xử lý các vấn đề pháp lý phức tạp, dự án đầu tư, M&amp;A và tranh chấp giá trị lên đến hàng trăm tỷ đồng.</p>
+            <div class="sp-highlight"><p>Chuyên sâu M&amp;A, đầu tư, tái cơ cấu doanh nghiệp và đối ngoại với cơ quan nhà nước, hiệp hội doanh nghiệp.</p></div>
+            <div class="sp-section">
+              <div class="sp-section-title">Đào tạo</div>
+              <ul class="sp-list">
+                <li>Cử nhân Luật – Đại học Luật TP.HCM</li>
+                <li>Chứng chỉ Quản trị công ty – HOSE cấp</li>
+              </ul>
+            </div>
+            <div class="sp-section">
+              <div class="sp-section-title">Tổ chức nghề nghiệp</div>
+              <ul class="sp-list">
+                <li>Thành viên Liên Đoàn Luật Sư Việt Nam</li>
+                <li>Thành viên Đoàn Luật sư TP.HCM</li>
+              </ul>
+            </div>
+            <div class="sp-tags"><span class="sp-tag">M&amp;A</span><span class="sp-tag">Đầu tư</span><span class="sp-tag">Tái cơ cấu</span><span class="sp-tag">Doanh nghiệp</span></div>
+          </div>
+
+          <!-- 2 Ngọc -->
+          <div class="s-panel">
+            <div class="sp-role">Tiến sĩ – Cố vấn Pháp lý Cấp cao</div>
+            <div class="sp-name">Nguyễn Trường Ngọc</div>
+            <div class="sp-title">Tiến sĩ Luật – Giảng viên Đại học</div>
+            <p class="sp-bio">Gần <strong>20 năm kinh nghiệm</strong> giảng dạy pháp luật tại các trường đại học lớn. Chuyên ngành Tội phạm học kết hợp Luật Kinh tế giúp doanh nghiệp phòng tránh rủi ro pháp lý hiệu quả. Tham gia nghiên cứu nhiều đề tài lớn trong lĩnh vực kinh tế, bất động sản, ngân hàng. Hơn <strong>12 công trình khoa học</strong> đã công bố.</p>
+            <div class="sp-highlight"><p>Phong cách làm việc chuyên nghiệp, nhanh chóng và hiệu quả – thương hiệu cá nhân được khách hàng tin tưởng.</p></div>
+            <div class="sp-section">
+              <div class="sp-section-title">Đào tạo</div>
+              <ul class="sp-list">
+                <li>Cử nhân Luật Kinh tế – Quốc tế – Đại học Luật Hà Nội</li>
+                <li>Thạc sĩ Tội phạm học – Đại học CSND TP.HCM</li>
+                <li>Tiến sĩ Luật Kinh tế – Học viện KHXH</li>
+              </ul>
+            </div>
+            <div class="sp-section">
+              <div class="sp-section-title">Tổ chức nghề nghiệp</div>
+              <ul class="sp-list">
+                <li>Giảng viên Khoa Luật – Đại học Nguyễn Tất Thành</li>
+                <li>Giảng viên Khoa Luật Kinh tế – Đại học Kinh tế Luật</li>
+                <li>Thành viên Tổ tư vấn Pháp luật – Công đoàn Giáo dục Việt Nam</li>
+                <li>Chủ tịch công đoàn Khoa Luật kinh tế 2 nhiệm kỳ liên tiếp</li>
+                <li>Chuyên viên quản lý đào tạo – Học Viện Tư pháp</li>
+              </ul>
+            </div>
+            <div class="sp-tags"><span class="sp-tag">Hình sự kinh tế</span><span class="sp-tag">Bất động sản</span><span class="sp-tag">Ngân hàng</span></div>
+          </div>
+
+          <!-- 3 Trang -->
+          <div class="s-panel">
+            <div class="sp-role">Tiến sĩ – Cố vấn Pháp lý Cấp cao</div>
+            <div class="sp-name">Nguyễn Thị Thu Trang</div>
+            <div class="sp-title">Tiến sĩ Luật – Giảng viên Đại học</div>
+            <p class="sp-bio">Hơn <strong>19 năm kinh nghiệm</strong> giảng dạy pháp luật tại các trường đại học lớn. Viết giáo trình – NXB ĐHQG HCM 2020, 2021. Công trình khoa học đăng trên Tạp chí Dân chủ &amp; Pháp lý, Pháp luật &amp; Phát triển, Luật học. Hướng dẫn luận án tiến sĩ và luận văn thạc sĩ.</p>
+            <div class="sp-highlight"><p>Năng lực nghiên cứu chuyên sâu về kinh doanh thương mại quốc tế với nhiều kinh nghiệm thực tiễn phong phú.</p></div>
+            <div class="sp-section">
+              <div class="sp-section-title">Đào tạo</div>
+              <ul class="sp-list">
+                <li>Cử nhân Luật Kinh tế – Quốc tế – Đại học Luật Hà Nội</li>
+                <li>Cử nhân Ngôn ngữ Anh – Đại học Đà Nẵng</li>
+                <li>Thạc sĩ Luật Kinh tế – Đại học Luật TP.HCM</li>
+                <li>Tiến sĩ Luật Kinh tế – ĐH Kinh tế Luật ĐHQG TP.HCM</li>
+              </ul>
+            </div>
+            <div class="sp-section">
+              <div class="sp-section-title">Tổ chức nghề nghiệp</div>
+              <ul class="sp-list">
+                <li>Giảng viên Khoa Luật – Đại học Đà Lạt</li>
+                <li>Giảng viên trưởng cán bộ NN &amp; PTNT II</li>
+              </ul>
+            </div>
+            <div class="sp-tags"><span class="sp-tag">Thương mại QT</span><span class="sp-tag">Hợp đồng</span><span class="sp-tag">Luật Kinh tế</span></div>
+          </div>
+
+          <!-- 4 Nga -->
+          <div class="s-panel">
+            <div class="sp-role">Tiến sĩ – Cố vấn Pháp lý Cấp cao</div>
+            <div class="sp-name">Bùi Thị Hằng Nga</div>
+            <div class="sp-title">Tiến sĩ Luật – Giảng viên Đại học</div>
+            <p class="sp-bio">Hơn <strong>19 năm kinh nghiệm</strong> giảng dạy pháp luật. Viết sách – NXB Tổng hợp 2009, NXB ĐHQG HCM 2015–2022. Bài báo khoa học xuất sắc đăng tải trên Tạp chí Khoa học pháp lý, Tạp chí Nhà nước &amp; Pháp luật, Tạp chí Luật học. Thường xuyên tham gia trả lời báo chí.</p>
+            <div class="sp-highlight"><p>Chuyên sâu quản trị công ty cổ phần đại chúng và pháp lý nội bộ doanh nghiệp – SHTT, kinh doanh thương mại, thuế.</p></div>
+            <div class="sp-section">
+              <div class="sp-section-title">Đào tạo</div>
+              <ul class="sp-list">
+                <li>Cử nhân Luật Thương Mại – Đại học Luật TP.HCM</li>
+                <li>Thạc sĩ Luật Kinh tế – Đại học Luật TP.HCM</li>
+                <li>Tiến sĩ Luật Kinh tế – ĐH Kinh tế Luật ĐHQG TP.HCM</li>
+              </ul>
+            </div>
+            <div class="sp-section">
+              <div class="sp-section-title">Tổ chức nghề nghiệp</div>
+              <ul class="sp-list">
+                <li>Giảng viên Khoa Luật – Đại học Đà Lạt</li>
+                <li>Giảng viên – Đại học Kinh tế Luật</li>
+                <li>Cố vấn báo chí cao cấp</li>
+              </ul>
+            </div>
+            <div class="sp-tags"><span class="sp-tag">Quản trị công ty</span><span class="sp-tag">SHTT</span><span class="sp-tag">Thuế</span></div>
+          </div>
+
+          <!-- 5 Nam -->
+          <div class="s-panel">
+            <div class="sp-role">Chuyên viên – Cố vấn Pháp lý Cấp cao</div>
+            <div class="sp-name">Nguyễn Danh Nam</div>
+            <div class="sp-title">Cử nhân Luật Hành chính – ĐHQG TP.HCM</div>
+            <p class="sp-bio">Nguyên <strong>Phó Chánh Văn phòng Cục Thi hành án dân sự TP.HCM</strong>. Từng là Chấp hành viên Chi cục THA Quận 11 và Phòng Nghiệp vụ 2 – Cục THA TP.HCM. Chuyên viên Phòng thi hành án dân sự TP.HCM. Thế mạnh đặc biệt về thi hành án dân sự và thương mại khó, nhanh chóng và hiệu quả.</p>
+            <div class="sp-highlight"><p>Kinh nghiệm nhiều năm trong ngành giúp thi hành các bản án khó một cách nhanh chóng và hiệu quả nhất cho khách hàng.</p></div>
+            <div class="sp-section">
+              <div class="sp-section-title">Đào tạo</div>
+              <ul class="sp-list">
+                <li>Cử nhân Luật Hành Chính – Đại học Quốc gia TP.HCM</li>
+              </ul>
+            </div>
+            <div class="sp-section">
+              <div class="sp-section-title">Kinh nghiệm công tác</div>
+              <ul class="sp-list">
+                <li>Chiến sỹ trinh sát – Lữ đoàn 434, Quân đoàn 4</li>
+                <li>Chuyên viên Phòng Thi hành án dân sự TP.HCM</li>
+                <li>Chấp hành viên Chi cục THA dân sự Quận 11, TP.HCM</li>
+                <li>Chấp hành viên Phòng Nghiệp vụ 2 – Cục THA dân sự TP.HCM</li>
+                <li>Phó Chánh VP Cục Thi hành án dân sự TP.HCM</li>
+              </ul>
+            </div>
+            <div class="sp-tags"><span class="sp-tag">Thi hành án</span><span class="sp-tag">Dân sự</span><span class="sp-tag">Thương mại</span></div>
+          </div>
+
+        </div><!-- /slider-panels -->
+
+        <!-- Controls -->
+        <div class="slider-controls">
+          <div class="slider-thumbs" id="sliderThumbs">
+            <div class="s-thumb on" data-i="0"><img src="images/team-hoa.png" alt="Nguyễn Minh Hòa"/></div>
+            <div class="s-thumb" data-i="1"><img src="images/team-vien.png" alt="Phan Công Viên"/></div>
+            <div class="s-thumb" data-i="2"><img src="images/team-ngoc.png" alt="Nguyễn Trường Ngọc"/></div>
+            <div class="s-thumb" data-i="3"><img src="images/team-trang.png" alt="Nguyễn Thị Thu Trang"/></div>
+            <div class="s-thumb" data-i="4"><img src="images/team-nga.png" alt="Bùi Thị Hằng Nga"/></div>
+            <div class="s-thumb" data-i="5"><img src="images/team-nam.png" alt="Nguyễn Danh Nam"/></div>
+          </div>
+          <div class="slider-nav">
+            <div class="s-prog-track"><div class="s-prog-fill" id="sProgFill"></div></div>
+            <span class="s-count" id="sCount">01 / 06</span>
+            <button class="s-btn" id="sPrev">&#8592;</button>
+            <button class="s-btn" id="sNext">&#8594;</button>
+          </div>
+        </div>
+      </div><!-- /slider-info-col -->
+    </div><!-- /slider-shell -->
+  </div>
+</section>
+
+<!-- ════════ SERVICES ════════ -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head anim">
+      <span class="eyebrow">Lĩnh vực hành nghề</span>
+      <h2 class="h-display" style="margin-top:8px">Dịch vụ pháp lý <span>toàn diện</span></h2>
+      <div class="ornament"><div class="ornament-gem"></div></div>
+      <p class="body-lg">PNH LAW cung cấp đầy đủ các dịch vụ pháp lý cho khách hàng trên các hoạt động kinh doanh và đầu tư tại Việt Nam.</p>
+    </div>
+    <div class="sv-grid">
+      <div class="sv-card anim delay-1"><div class="sv-num">01</div><div class="sv-icon">⚖️</div><div class="sv-title">Tranh chấp &amp; Tố tụng</div><p class="sv-desc">Tư vấn và giải quyết tranh chấp dân sự, đất đai, thương mại, lao động tại Tòa án các cấp và Trung tâm Trọng tài. Hỗ trợ thi hành án, giám đốc thẩm và tái thẩm.</p><span class="sv-more">Tìm hiểu thêm <span>→</span></span></div>
+      <div class="sv-card anim delay-2"><div class="sv-num">02</div><div class="sv-icon">🏢</div><div class="sv-title">Pháp lý Doanh nghiệp</div><p class="sv-desc">Tư vấn cơ cấu, quản trị và vận hành doanh nghiệp. Soạn thảo văn bản quản trị nội bộ, điều lệ, quy chế. Hỗ trợ tổ chức HĐQT và ĐHĐCĐ.</p><span class="sv-more">Tìm hiểu thêm <span>→</span></span></div>
+      <div class="sv-card anim delay-3"><div class="sv-num">03</div><div class="sv-icon">🤝</div><div class="sv-title">M&amp;A &amp; Đầu tư</div><p class="sv-desc">Tư vấn pháp lý toàn diện cho các giao dịch mua bán, sáp nhập, đầu tư và tái cơ cấu doanh nghiệp. Xử lý hồ sơ xin phép và triển khai dự án đầu tư.</p><span class="sv-more">Tìm hiểu thêm <span>→</span></span></div>
+      <div class="sv-card anim delay-1"><div class="sv-num">04</div><div class="sv-icon">🏦</div><div class="sv-title">Tài chính – Ngân hàng</div><p class="sv-desc">Tư vấn tài trợ vốn, trái phiếu doanh nghiệp, tài sản bảo đảm, xử lý nợ xấu. Tham gia tố tụng thu hồi nợ cho ngân hàng và doanh nghiệp.</p><span class="sv-more">Tìm hiểu thêm <span>→</span></span></div>
+      <div class="sv-card anim delay-2"><div class="sv-num">05</div><div class="sv-icon">📋</div><div class="sv-title">Hợp đồng Thương mại</div><p class="sv-desc">Thương lượng, soạn thảo và soát xét các loại hợp đồng thương mại, đầu tư và kinh doanh. Tư vấn giải quyết tranh chấp hợp đồng nhanh chóng, hiệu quả.</p><span class="sv-more">Tìm hiểu thêm <span>→</span></span></div>
+      <div class="sv-card anim delay-3"><div class="sv-num">06</div><div class="sv-icon">👥</div><div class="sv-title">Lao động &amp; Nhân sự</div><p class="sv-desc">Soạn thảo hợp đồng lao động, nội quy, thỏa ước lao động tập thể. Tư vấn thay đổi cơ cấu lao động, kỷ luật và tranh chấp lao động.</p><span class="sv-more">Tìm hiểu thêm <span>→</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ QUOTE BANNER ════════ -->
+<section class="quote-banner">
+  <div class="qb-overlay"></div>
+  <div class="wrap">
+    <div class="qb-inner anim">
+      <span class="qb-icon">⚖</span>
+      <blockquote class="qb-quote">
+        "Mỗi vụ việc là một cam kết — chúng tôi không chỉ cung cấp dịch vụ pháp lý,<br/>
+        chúng tôi đồng hành cùng bạn bảo vệ những điều quan trọng nhất."
+      </blockquote>
+      <div class="qb-line"></div>
+      <cite class="qb-cite">— PNH Law · Đức Trọng · Pháp Minh · Nhân Hòa</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STRENGTHS ════════ -->
+<section id="strengths">
+  <div class="wrap">
+    <div class="str-grid">
+      <div class="str-media anim-l">
+        <div class="str-media-corner"></div>
+        <img src="images/banner-court2.png" alt="PNH Law"/>
+        <div class="str-badge">
+          <span class="num">90%</span>
+          <span class="sub">Tỉ lệ thành công</span>
+        </div>
+      </div>
+      <div class="str-content anim-r">
+        <span class="eyebrow">Thế mạnh đặc biệt</span>
+        <h2 class="h-display" style="margin-top:8px">Vì sao chọn <span>PNH LAW?</span></h2>
+        <div class="ornament"><div class="ornament-gem"></div></div>
+        <p class="body-lg">PNH LAW là nơi tập hợp các luật sư tranh tụng chuyên nghiệp và cố vấn pháp lý cấp cao với kiến thức chuyên môn sâu, lập luận sắc bén.</p>
+        <div class="str-items">
+          <div class="str-item"><div class="str-item-num">01</div><div class="str-item-text"><h4>Giải pháp tốt nhất – Sáng tạo</h4><p>Nhận được các giải pháp pháp lý tối ưu từ đội ngũ luật sư chuyên nghiệp và tư duy sáng tạo của PNH LAW.</p></div></div>
+          <div class="str-item"><div class="str-item-num">02</div><div class="str-item-text"><h4>Tận tâm – Đạo đức – Trách nhiệm</h4><p>Hành xử tận tâm, có đạo đức và chịu trách nhiệm cao nhất với từng công việc của khách hàng.</p></div></div>
+          <div class="str-item"><div class="str-item-num">03</div><div class="str-item-text"><h4>Bảo vệ toàn diện quyền lợi</h4><p>Bảo vệ hết mình quyền lợi hợp pháp của khách hàng, xem đó cũng là vấn đề của chính PNH LAW.</p></div></div>
+          <div class="str-item"><div class="str-item-num">04</div><div class="str-item-text"><h4>Cập nhật nhanh – Hiệu quả – Đầy đủ</h4><p>Tư vấn, cập nhật cho khách hàng nhanh chóng và đầy đủ suốt toàn bộ quá trình giải quyết.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TRAINING ════════ -->
+<section id="training">
+  <div class="wrap">
+    <div class="training-head anim">
+      <span class="eyebrow">Đào tạo pháp lý</span>
+      <h2 class="h-display wh" style="margin-top:8px">Chương trình <em>Đào tạo</em></h2>
+      <div class="ornament wh"><div class="ornament-gem"></div></div>
+      <p class="body-lg">Với đội ngũ luật sư và cố vấn cấp cao nhiều kinh nghiệm, PNH LAW cung cấp chương trình đào tạo pháp lý phù hợp với nhu cầu cụ thể của doanh nghiệp.</p>
+    </div>
+    <div class="training-grid">
+      <div class="tr-card anim delay-1"><h3>Quản trị &amp; Pháp lý Doanh nghiệp</h3><ul><li>Kiến thức pháp lý, quản trị Công ty Đại Chúng, Ngân hàng, Định chế tài chính</li><li>Thành lập, hoạt động, tái cơ cấu và văn bản quản trị doanh nghiệp</li><li>Phân cấp, ủy quyền và điều hành doanh nghiệp theo pháp luật</li><li>Các quy định pháp lý quan trọng nhất cho nhà quản lý &amp; lãnh đạo</li></ul></div>
+      <div class="tr-card anim delay-2"><h3>Đầu tư &amp; M&amp;A</h3><ul><li>Quy định và kỹ năng giải quyết vấn đề pháp lý về đầu tư, M&amp;A tại Việt Nam</li><li>Cơ chế pháp lý về cấu trúc nợ, xử lý nợ ngân hàng hiệu quả</li><li>Chiến lược và kỹ năng giải quyết tranh chấp trong xây dựng</li><li>Thủ tục và kinh nghiệm giải quyết tranh chấp thương mại</li></ul></div>
+      <div class="tr-card anim delay-3"><h3>Hợp đồng &amp; Lao động</h3><ul><li>Soạn thảo, thương lượng và giải quyết tranh chấp hợp đồng thương mại</li><li>Hợp đồng lao động và các vấn đề pháp lý về lao động</li><li>Chiến lược giải quyết bồi thường và tranh chấp lao động</li><li>Kỹ năng đàm phán và bảo vệ quyền lợi lao động</li></ul></div>
+      <div class="tr-card anim delay-4"><h3>Chương trình Theo Yêu cầu</h3><ul><li>Chương trình đào tạo pháp lý thiết kế riêng cho từng doanh nghiệp</li><li>Workshop nội bộ cho ban lãnh đạo và phòng pháp chế</li><li>Cập nhật thay đổi pháp luật mới nhất ảnh hưởng đến kinh doanh</li><li>Đào tạo kỹ năng đàm phán và giải quyết tranh chấp thực tế</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ NEWS ════════ -->
+<section id="news">
+  <div class="wrap">
+    <div class="section-head anim">
+      <span class="eyebrow">Góc pháp lý</span>
+      <h2 class="h-display" style="margin-top:8px">Tin tức &amp; <span>Bài viết</span></h2>
+      <div class="ornament"><div class="ornament-gem"></div></div>
+      <p class="body-lg">Cập nhật các thay đổi pháp luật, phân tích chuyên sâu và kinh nghiệm thực tiễn từ đội ngũ PNH LAW.</p>
+    </div>
+    <!-- Cards render by JS -->
+    <div class="news-grid" id="newsGrid">
+      <!-- Skeleton loading -->
+      <div class="news-skeleton anim delay-1"><div class="skel-img"></div><div class="skel-body"><div class="skel-line w60"></div><div class="skel-line w80"></div><div class="skel-line"></div><div class="skel-line w80"></div></div></div>
+      <div class="news-skeleton anim delay-2"><div class="skel-img"></div><div class="skel-body"><div class="skel-line w60"></div><div class="skel-line w80"></div><div class="skel-line"></div><div class="skel-line w80"></div></div></div>
+      <div class="news-skeleton anim delay-3"><div class="skel-img"></div><div class="skel-body"><div class="skel-line w60"></div><div class="skel-line w80"></div><div class="skel-line"></div><div class="skel-line w80"></div></div></div>
+    </div>
+    <div class="news-footer anim">
+      <a href="news.html" class="btn btn-ghost-g">Xem tất cả bài viết <span style="margin-left:4px">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-head anim">
+      <span class="eyebrow">Liên hệ</span>
+      <h2 class="h-display" style="margin-top:8px">Đăng ký <span>Tư vấn</span></h2>
+      <div class="ornament"><div class="ornament-gem"></div></div>
+      <p class="body-lg">Nếu Quý khách cần thêm thông tin về dịch vụ pháp lý, vui lòng liên lạc. PNH LAW sẽ hồi đáp sớm nhất cho từng yêu cầu cụ thể.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="anim-l">
+        <div class="contact-info">
+          <h3>Thông tin liên hệ</h3>
+          <div class="contact-items">
+            <div class="contact-item"><div class="c-icon">📍</div><div class="c-text"><span class="eyebrow lbl">Địa chỉ</span><p>Tòa nhà Bibica, Tầng 1B, số 443 Lý Thường Kiệt,<br/>Phường 8, Quận Tân Bình, TP.HCM</p></div></div>
+            <div class="contact-item"><div class="c-icon">📞</div><div class="c-text"><span class="eyebrow lbl">Hotline 24/7</span><a href="tel:0902071412">090 207 1412</a></div></div>
+            <div class="contact-item"><div class="c-icon">✉️</div><div class="c-text"><span class="eyebrow lbl">Email</span><a href="mailto:pnhlawfirm@gmail.com">pnhlawfirm@gmail.com</a></div></div>
+            <div class="contact-item"><div class="c-icon">🌐</div><div class="c-text"><span class="eyebrow lbl">Website</span><a href="https://www.pnhlaw.vn" target="_blank">www.pnhlaw.vn</a></div></div>
+          </div>
+          <div class="privacy-note"><p>🔒 Thông tin của Quý khách hàng sẽ luôn được PNH LAW bảo mật tuyệt đối và sẽ không được cung cấp cho bất kỳ bên thứ ba nào.</p></div>
+        </div>
+      </div>
+      <div class="contact-form anim-r">
+        <h3>Gửi yêu cầu tư vấn</h3>
+        <form action="https://formsubmit.co/pnhlawfirm@gmail.com" method="POST">
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="[PNH LAW] Yêu cầu tư vấn mới">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.pnhlaw.vn/?sent=1">
+          <div class="form-row">
+            <div class="form-group"><label>Họ và tên</label><input type="text" name="ho_ten" placeholder="Nguyễn Văn A" required/></div>
+            <div class="form-group"><label>Số điện thoại</label><input type="tel" name="so_dien_thoai" placeholder="090 xxx xxxx" required/></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="email@congty.com"/></div>
+          <div class="form-group"><label>Lĩnh vực cần tư vấn</label>
+            <select name="linh_vuc">
+              <option value="">-- Chọn lĩnh vực --</option>
+              <option>Tranh chấp &amp; Tố tụng</option>
+              <option>Pháp lý Doanh nghiệp</option>
+              <option>M&amp;A &amp; Đầu tư</option>
+              <option>Tài chính – Ngân hàng</option>
+              <option>Hợp đồng Thương mại</option>
+              <option>Lao động &amp; Nhân sự</option>
+              <option>Đào tạo Pháp lý</option>
+              <option>Khác</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Nội dung yêu cầu</label><textarea name="noi_dung" placeholder="Mô tả ngắn gọn vấn đề pháp lý của bạn..."></textarea></div>
+          <button type="submit" class="form-submit">Gửi yêu cầu tư vấn</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);letter-spacing:.5px">PNH LAW</div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.7;margin-top:4px">Công ty Luật TNHH PNH</div>
+        <p>Đức Trọng – Pháp Minh – Nhân Hòa.<br/>Đồng hành cùng doanh nghiệp trong mọi thách thức pháp lý tại Việt Nam.</p>
+      </div>
+      <div class="footer-col"><h4>Dịch vụ</h4><ul><li><a href="#services">Tranh chấp &amp; Tố tụng</a></li><li><a href="#services">Pháp lý Doanh nghiệp</a></li><li><a href="#services">M&amp;A &amp; Đầu tư</a></li><li><a href="#services">Tài chính – Ngân hàng</a></li><li><a href="#services">Hợp đồng Thương mại</a></li><li><a href="#services">Lao động &amp; Nhân sự</a></li></ul></div>
+      <div class="footer-col"><h4>Công ty</h4><ul><li><a href="#about">Về chúng tôi</a></li><li><a href="#team">Đội ngũ lãnh đạo</a></li><li><a href="#strengths">Thế mạnh</a></li><li><a href="#training">Đào tạo pháp lý</a></li><li><a href="#news">Tin tức</a></li><li><a href="#contact">Liên hệ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>©2024 Công Ty Luật TNHH PNH. All rights reserved.</p>
+      <p>📞 090 207 1412 &nbsp;|&nbsp; ✉️ pnhlawfirm@gmail.com</p>
+    </div>
+  </div>
+</footer>
+
+<script src="news.js"></script>
+<script>
+/* ─── PARTICLES ─── */
+(()=>{
+  const ct = document.getElementById('particlesCt');
+  for(let i=0;i<19;i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const x=Math.random()*100, dur=10+Math.random()*14, del=-Math.random()*14, tx=(Math.random()-.5)*100;
+    p.style.cssText=`left:${x}%;animation-duration:${dur}s;animation-delay:${del}s;--tx:${tx}px`;
+    ct.appendChild(p);
+  }
+})();
+
+/* ─── HEADER ─── */
+const hdr = document.getElementById('site-header');
+window.addEventListener('scroll', () => hdr.classList.toggle('filled', scrollY > 56), {passive:true});
+
+/* ─── MOBILE MENU ─── */
+const hamBtn = document.getElementById('hamBtn');
+const mDrawer = document.getElementById('mDrawer');
+hamBtn.addEventListener('click', () => {
+  hamBtn.classList.toggle('open');
+  mDrawer.classList.toggle('open');
+});
+document.querySelectorAll('.mdl').forEach(a => a.addEventListener('click', () => {
+  hamBtn.classList.remove('open');
+  mDrawer.classList.remove('open');
+}));
+
+/* ─── ACTIVE NAV ─── */
+const navAs = document.querySelectorAll('#navLinks a:not(.nav-cta)');
+const sectIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting)
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+e.target.id));
+  });
+}, {threshold: .3});
+document.querySelectorAll('section[id]').forEach(s => sectIO.observe(s));
+
+/* ─── SCROLL REVEAL ─── */
+const revIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); revIO.unobserve(e.target); } });
+}, {threshold: .08});
+document.querySelectorAll('.anim,.anim-l,.anim-r').forEach(el => revIO.observe(el));
+
+/* ─── PARALLAX ─── */
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+  if(heroBg) heroBg.style.transform = `scale(1.06) translateY(${scrollY*.2}px)`;
+}, {passive:true});
+
+/* ─── STATS COUNTER ─── */
+const statIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    e.target.querySelectorAll('.stat-num').forEach(n => {
+      const v = +n.dataset.v, s = n.dataset.s;
+      if(!v) return;
+      let c = 0; const step = v/(1800/16);
+      const t = setInterval(() => { c = Math.min(c+step,v); n.textContent = Math.floor(c)+s; if(c>=v) clearInterval(t); }, 16);
+    });
+    statIO.unobserve(e.target);
+  });
+}, {threshold:.5});
+const statEl = document.getElementById('stats');
+if(statEl) statIO.observe(statEl);
+
+/* ─── TEAM SLIDER ─── */
+const TOTAL = 6, DURATION = 6200;
+let cur = 0, prog = 0, progTimer = null, paused = false;
+
+const photos   = document.querySelectorAll('.s-photo');
+const panels   = document.querySelectorAll('.s-panel');
+const thumbs   = document.querySelectorAll('.s-thumb');
+const mmBars   = document.querySelectorAll('.mmb');
+const progFill = document.getElementById('sProgFill');
+const countEl  = document.getElementById('sCount');
+
+function goTo(idx) {
+  idx = (idx + TOTAL) % TOTAL;
+  photos.forEach((p,i) => p.classList.toggle('on', i===idx));
+  panels.forEach((p,i) => p.classList.toggle('on', i===idx));
+  thumbs.forEach((t,i) => t.classList.toggle('on', i===idx));
+  mmBars.forEach((m,i) => m.classList.toggle('on', i===idx));
+  countEl.textContent = String(idx+1).padStart(2,'0')+' / '+String(TOTAL).padStart(2,'0');
+  cur = idx;
+  resetProg();
+}
+
+function resetProg() {
+  if(progTimer) clearInterval(progTimer);
+  prog = 0; progFill.style.width = '0%';
+  if(paused) return;
+  progTimer = setInterval(() => {
+    prog += 100 / (DURATION/100);
+    progFill.style.width = Math.min(prog,100) + '%';
+    if(prog >= 100) { clearInterval(progTimer); goTo(cur+1); }
+  }, 100);
+}
+
+document.getElementById('sPrev').addEventListener('click', () => goTo(cur-1));
+document.getElementById('sNext').addEventListener('click', () => goTo(cur+1));
+thumbs.forEach(t => t.addEventListener('click', () => goTo(+t.dataset.i)));
+
+const shell = document.querySelector('.slider-shell');
+shell.addEventListener('mouseenter', () => { paused=true; if(progTimer){clearInterval(progTimer);progTimer=null;} });
+shell.addEventListener('mouseleave', () => { paused=false; resetProg(); });
+
+let touchX = 0;
+shell.addEventListener('touchstart', e => touchX = e.touches[0].clientX, {passive:true});
+shell.addEventListener('touchend',   e => { const d = touchX - e.changedTouches[0].clientX; if(Math.abs(d)>40) goTo(cur+(d>0?1:-1)); }, {passive:true});
+
+goTo(0);
+
+/* ─── SMOOTH SCROLL ─── */
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e){
+  const t = document.querySelector(this.getAttribute('href'));
+  if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+}));
+
+/* ─── FORM SUBMIT ─── handled by FormSubmit.co ─── */
+
+/* ─── NEWS LOADER ─── */
+(function() {
+  const grid = document.getElementById('newsGrid');
+  if (!grid || typeof NEWS_DATA === 'undefined') return;
+  // Placeholder SVG khi ảnh chưa có – tránh vòng lặp onerror
+  const placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='200'%3E%3Crect width='600' height='200' fill='%23E3F0E9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23647A6A'%3EGóc pháp lý PNH LAW%3C/text%3E%3C/svg%3E";
+  const latest = NEWS_DATA.slice(0, 3);
+  grid.innerHTML = latest.map((a, i) => {
+    const d = new Date(a.date);
+    const dateStr = d.toLocaleDateString('vi-VN', {day:'2-digit', month:'2-digit', year:'numeric'});
+    return `
+    <div class="news-card anim delay-${i+1}" onclick="location.href='news.html?id=${a.id}'">
+      <div class="news-thumb-wrap">
+        <img class="news-thumb" src="${a.image}" onerror="this.onerror=null;this.src='${placeholder}'" alt="${a.title}" loading="lazy"/>
+      </div>
+      <div class="news-body">
+        <div class="news-meta">
+          <span class="news-tag">${a.tag}</span>
+          <span class="news-date">${dateStr}</span>
+        </div>
+        <div class="news-title">${a.title}</div>
+        <p class="news-summary">${a.summary}</p>
+        <span class="news-read">Đọc thêm <span>→</span></span>
+      </div>
+    </div>`;
+  }).join('');
+  grid.querySelectorAll('.anim').forEach(el => revIO.observe(el));
+})();
+</script>
+</body>
+</html>

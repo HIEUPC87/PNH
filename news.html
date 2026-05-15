@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tin tức & Góc pháp lý – PNH Law</title>
+<meta name="description" content="Cập nhật pháp luật, phân tích chuyên sâu và kinh nghiệm thực tiễn từ đội ngũ luật sư PNH LAW."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══ DESIGN SYSTEM (shared) ═══ */
+:root {
+  --forest:  #006839;
+  --deep:    #054222;
+  --darkest: #021F10;
+  --green-5: #F0F7F3;
+  --green-10:#E3F0E9;
+  --gold:    #C8991F;
+  --gold-lt: #E0AC28;
+  --gold-pale:#F7EDD0;
+  --white:   #FFFFFF;
+  --off:     #F9F8F6;
+  --stone:   #F2EFE9;
+  --ink:     #1A2219;
+  --ink-2:   #3A4E3E;
+  --ink-3:   #647A6A;
+  --bdr:     #D9E5DD;
+  --r: 4px; --r2: 8px;
+  --tr: 0.28s ease; --tr-slow: 0.55s ease;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.wrap { width: min(1160px, 90%); margin: 0 auto; }
+
+/* ═══ HEADER ═══ */
+#site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 900;
+  background: var(--deep);
+  box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 8px 32px rgba(0,0,0,.28);
+}
+#site-header::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(200,153,31,.0) 10%, rgba(200,153,31,.75) 35%, var(--gold) 50%, rgba(200,153,31,.75) 65%, rgba(200,153,31,.0) 90%, transparent 100%);
+}
+.hdr-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo img { width: 44px; height: 44px; object-fit: contain; filter: brightness(0) invert(1); }
+.logo-text { display: flex; flex-direction: column; gap: 2px; }
+.logo-text b { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--white); letter-spacing: .5px; line-height: 1; }
+.logo-text small { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); opacity: .85; }
+.hdr-back { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; color: rgba(255,255,255,.6); transition: var(--tr); padding: 7px 0; }
+.hdr-back:hover { color: var(--gold); }
+.hdr-cta { padding: 8px 20px; background: var(--gold); color: var(--deep); font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; border-radius: var(--r); transition: var(--tr); white-space: nowrap; }
+.hdr-cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+/* ═══ PAGE HERO ═══ */
+.page-hero {
+  padding: 130px 0 64px;
+  background: var(--deep);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('images/quote-bg.jpg') center/cover no-repeat;
+  opacity: .08;
+}
+.page-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,153,31,.35), transparent);
+}
+.page-hero-inner { position: relative; z-index: 1; }
+.eyebrow { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.page-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 14px; }
+.page-title em { font-style: normal; color: var(--gold); }
+.page-desc { font-size: 15px; color: rgba(255,255,255,.52); line-height: 1.8; max-width: 520px; }
+
+/* ═══ ARTICLE LIST ═══ */
+#listView { padding: 72px 0 96px; background: var(--off); }
+.list-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.article-card {
+  background: var(--white); border-radius: var(--r2); overflow: hidden;
+  border: 1px solid var(--bdr); transition: var(--tr-slow); cursor: pointer;
+  display: flex; flex-direction: column;
+}
+.article-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,80,40,.1); border-color: transparent; }
+.ac-thumb-wrap { overflow: hidden; position: relative; flex-shrink: 0; }
+.ac-thumb-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--forest), var(--gold)); transform: scaleX(0); transform-origin: left; transition: var(--tr-slow); }
+.article-card:hover .ac-thumb-wrap::after { transform: scaleX(1); }
+.ac-thumb { width: 100%; height: 196px; object-fit: cover; display: block; transition: transform .55s ease; }
+.article-card:hover .ac-thumb { transform: scale(1.04); }
+.ac-body { padding: 20px 20px 16px; display: flex; flex-direction: column; flex: 1; }
+.ac-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
+.ac-tag { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--forest); background: var(--green-5); border: 1px solid var(--bdr); padding: 3px 9px; border-radius: 100px; }
+.ac-date { font-size: 11px; color: var(--ink-3); }
+.ac-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.38; margin-bottom: 8px; transition: color var(--tr); }
+.article-card:hover .ac-title { color: var(--forest); }
+.ac-summary { font-size: 12.5px; color: var(--ink-3); line-height: 1.7; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.ac-read { display: inline-flex; align-items: center; gap: 5px; margin-top: 13px; font-size: 11.5px; font-weight: 600; color: var(--forest); }
+.ac-read span { transition: transform var(--tr); }
+.article-card:hover .ac-read span { transform: translateX(4px); }
+.ac-author { font-size: 11px; color: var(--ink-3); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--bdr); }
+
+/* ═══ ARTICLE DETAIL ═══ */
+#detailView { display: none; padding: 72px 0 96px; }
+.detail-wrap { max-width: 780px; margin: 0 auto; }
+.detail-back {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11.5px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 36px; transition: var(--tr); cursor: pointer;
+}
+.detail-back:hover { color: var(--forest); }
+.detail-tag { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--forest); background: var(--green-5); border: 1px solid var(--bdr); padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
+.detail-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: var(--ink); line-height: 1.22; margin-bottom: 14px; }
+.detail-meta { display: flex; align-items: center; gap: 16px; font-size: 12px; color: var(--ink-3); margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--bdr); flex-wrap: wrap; }
+.detail-meta strong { color: var(--ink-2); font-weight: 600; }
+.detail-hero-img { width: 100%; height: 400px; object-fit: cover; border-radius: var(--r2); margin-bottom: 36px; }
+.detail-content { font-size: 15.5px; line-height: 1.88; color: var(--ink-2); }
+.detail-content h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 600;
+  color: var(--ink); margin: 32px 0 12px; padding-left: 14px;
+  border-left: 3px solid var(--gold);
+}
+.detail-content p { margin-bottom: 18px; }
+.detail-content p:last-child { margin-bottom: 0; }
+.detail-cta {
+  margin-top: 48px; padding: 32px 36px; background: var(--deep);
+  border-radius: var(--r2); border-left: 3px solid var(--gold); text-align: center;
+}
+.detail-cta p { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,.75); line-height: 1.6; margin-bottom: 18px; }
+.detail-cta a { display: inline-flex; align-items: center; gap: 9px; padding: 12px 28px; background: var(--gold); color: var(--deep); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: var(--r); transition: var(--tr); }
+.detail-cta a:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.detail-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--bdr); flex-wrap: wrap; }
+.detail-nav-btn {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 14px 18px; border: 1px solid var(--bdr); border-radius: var(--r2);
+  transition: var(--tr); cursor: pointer; flex: 1; min-width: 160px;
+}
+.detail-nav-btn:hover { border-color: var(--forest); background: var(--green-5); }
+.detail-nav-btn .nav-dir { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-3); }
+.detail-nav-btn .nav-title { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.detail-nav-btn.prev { text-align: left; }
+.detail-nav-btn.next { text-align: right; }
+
+/* ═══ FOOTER ═══ */
+#footer {
+  background: var(--darkest); padding: 52px 0 24px; position: relative;
+}
+#footer::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(200,153,31,.0) 5%, rgba(200,153,31,.55) 30%, rgba(200,153,31,.55) 70%, rgba(200,153,31,.0) 95%, transparent 100%);
+}
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.footer-bottom p { font-size: 11.5px; color: rgba(255,255,255,.22); }
+.footer-bottom a { font-size: 11.5px; color: rgba(255,255,255,.38); transition: var(--tr); }
+.footer-bottom a:hover { color: var(--gold); }
+
+/* Skeleton */
+.skel-line { height: 12px; border-radius: 6px; background: linear-gradient(90deg, var(--stone) 25%, var(--bdr) 50%, var(--stone) 75%); background-size: 200% 100%; animation: skelShimmer 1.4s infinite; margin-bottom: 10px; }
+@keyframes skelShimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* Responsive */
+@media (max-width: 900px) { .list-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) {
+  .list-grid { grid-template-columns: 1fr; }
+  .detail-hero-img { height: 240px; }
+  .detail-title { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header id="site-header">
+  <div class="wrap">
+    <div class="hdr-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" onerror="this.style.display='none'" alt="PNH Law"/>
+        <div class="logo-text">
+          <b>PNH LAW</b>
+          <small>Công ty Luật TNHH PNH</small>
+        </div>
+      </a>
+      <a href="index.html" class="hdr-back">← Trang chủ</a>
+      <a href="index.html#contact" class="hdr-cta">Đăng ký tư vấn</a>
+    </div>
+  </div>
+</header>
+
+<!-- ════════ PAGE HERO ════════ -->
+<div class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-inner">
+      <span class="eyebrow">Góc pháp lý</span>
+      <h1 class="page-title">Tin tức &amp; <em>Bài viết</em></h1>
+      <p class="page-desc">Phân tích chuyên sâu về pháp luật doanh nghiệp, M&amp;A, lao động và các lĩnh vực pháp lý quan trọng — từ đội ngũ luật sư PNH LAW.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ARTICLE LIST ════════ -->
+<section id="listView">
+  <div class="wrap">
+    <div class="list-grid" id="listGrid">
+      <!-- skeleton -->
+      <div style="background:var(--white);border-radius:var(--r2);overflow:hidden;border:1px solid var(--bdr)"><div style="height:196px;background:var(--stone)"></div><div style="padding:20px"><div class="skel-line" style="width:60%"></div><div class="skel-line" style="width:85%"></div><div class="skel-line"></div></div></div>
+      <div style="background:var(--white);border-radius:var(--r2);overflow:hidden;border:1px solid var(--bdr)"><div style="height:196px;background:var(--stone)"></div><div style="padding:20px"><div class="skel-line" style="width:60%"></div><div class="skel-line" style="width:85%"></div><div class="skel-line"></div></div></div>
+      <div style="background:var(--white);border-radius:var(--r2);overflow:hidden;border:1px solid var(--bdr)"><div style="height:196px;background:var(--stone)"></div><div style="padding:20px"><div class="skel-line" style="width:60%"></div><div class="skel-line" style="width:85%"></div><div class="skel-line"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ARTICLE DETAIL ════════ -->
+<section id="detailView">
+  <div class="wrap">
+    <div class="detail-wrap" id="detailContent">
+      <!-- rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <p>©2024 Công Ty Luật TNHH PNH. All rights reserved.</p>
+      <div style="display:flex;gap:18px">
+        <a href="index.html">Trang chủ</a>
+        <a href="index.html#services">Dịch vụ</a>
+        <a href="index.html#contact">Liên hệ</a>
+      </div>
+      <p>📞 090 207 1412 &nbsp;|&nbsp; ✉️ pnhlawfirm@gmail.com</p>
+    </div>
+  </div>
+</footer>
+
+<script src="news.js"></script>
+<script>
+const PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='200'%3E%3Crect width='600' height='200' fill='%23E3F0E9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23647A6A'%3EG%C3%B3c ph%C3%A1p l%C3%BD PNH LAW%3C/text%3E%3C/svg%3E";
+let allArticles = [];
+
+/* ── Format date ── */
+function fmtDate(str) {
+  const d = new Date(str);
+  return d.toLocaleDateString('vi-VN', {day:'2-digit', month:'2-digit', year:'numeric'});
+}
+
+/* ── Render article content ── */
+function renderContent(sections) {
+  return sections.map(s => {
+    if (s.startsWith('## ')) {
+      return `<h2>${s.slice(3)}</h2>`;
+    }
+    return `<p>${s}</p>`;
+  }).join('\n');
+}
+
+/* ── Show list view ── */
+function showList(articles) {
+  const grid = document.getElementById('listGrid');
+  document.getElementById('listView').style.display = 'block';
+  document.getElementById('detailView').style.display = 'none';
+  document.title = 'Tin tức & Góc pháp lý – PNH Law';
+
+  grid.innerHTML = articles.map(a => `
+    <div class="article-card" onclick="showDetail(${a.id})">
+      <div class="ac-thumb-wrap">
+        <img class="ac-thumb" src="${a.image}" onerror="this.onerror=null;this.src='${PLACEHOLDER}'" alt="${a.title}" loading="lazy"/>
+      </div>
+      <div class="ac-body">
+        <div class="ac-meta">
+          <span class="ac-tag">${a.tag}</span>
+          <span class="ac-date">${fmtDate(a.date)}</span>
+        </div>
+        <div class="ac-title">${a.title}</div>
+        <p class="ac-summary">${a.summary}</p>
+        <span class="ac-read">Đọc thêm <span>→</span></span>
+        <div class="ac-author">✍ ${a.author}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ── Show article detail ── */
+function showDetail(id) {
+  const a = allArticles.find(x => x.id === id);
+  if (!a) return;
+
+  document.getElementById('listView').style.display  = 'none';
+  document.getElementById('detailView').style.display = 'block';
+  document.title = a.title + ' – PNH Law';
+
+  // prev / next
+  const idx  = allArticles.findIndex(x => x.id === id);
+  const prev = allArticles[idx + 1];
+  const next = allArticles[idx - 1];
+  const navHtml = `
+    <div class="detail-nav">
+      ${prev ? `<div class="detail-nav-btn prev" onclick="showDetail(${prev.id})">
+        <span class="nav-dir">← Bài trước</span>
+        <span class="nav-title">${prev.title}</span>
+      </div>` : '<div></div>'}
+      ${next ? `<div class="detail-nav-btn next" onclick="showDetail(${next.id})">
+        <span class="nav-dir">Bài tiếp →</span>
+        <span class="nav-title">${next.title}</span>
+      </div>` : '<div></div>'}
+    </div>`;
+
+  document.getElementById('detailContent').innerHTML = `
+    <div class="detail-back" onclick="showList(allArticles)">← Tất cả bài viết</div>
+    <span class="detail-tag">${a.tag}</span>
+    <h1 class="detail-title">${a.title}</h1>
+    <div class="detail-meta">
+      <span>📅 ${fmtDate(a.date)}</span>
+      <span>✍ <strong>${a.author}</strong></span>
+    </div>
+    <img class="detail-hero-img" src="${a.image}" onerror="this.onerror=null;this.src='${PLACEHOLDER}'" alt="${a.title}"/>
+    <div class="detail-content">${renderContent(a.content)}</div>
+    <div class="detail-cta">
+      <p>"Nếu bài viết này liên quan đến vấn đề pháp lý của doanh nghiệp bạn, đội ngũ PNH LAW sẵn sàng tư vấn cụ thể và chi tiết hơn."</p>
+      <a href="index.html#contact">Đăng ký tư vấn miễn phí →</a>
+    </div>
+    ${navHtml}
+  `;
+
+  // Update URL hash
+  history.pushState({id}, '', `news.html?id=${id}`);
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+/* ── Init ── */
+(function() {
+  if (typeof NEWS_DATA === 'undefined' || !NEWS_DATA.length) {
+    document.getElementById('listGrid').innerHTML =
+      '<p style="color:#647A6A;text-align:center;grid-column:1/-1;padding:40px 0;font-size:14px">Chưa có bài viết nào.</p>';
+    return;
+  }
+  allArticles = NEWS_DATA;
+
+  // Check URL param
+  const params = new URLSearchParams(location.search);
+  const reqId  = params.get('id');
+  if (reqId) {
+    showDetail(parseInt(reqId));
+  } else {
+    showList(allArticles);
+  }
+})();
+
+/* ── Handle browser back/forward ── */
+window.addEventListener('popstate', e => {
+  if (e.state && e.state.id) showDetail(e.state.id);
+  else showList(allArticles);
+});
+</script>
+</body>
+</html>

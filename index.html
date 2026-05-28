@@ -1727,7 +1727,7 @@ strong { font-weight: 600; }
           <strong>PNH LAW</strong> được đồng sáng lập bởi Luật sư <strong>Nguyễn Minh Hòa</strong> và Luật sư <strong>Phan Công Viên</strong> — hai chuyên gia pháp lý với hơn 30 năm kinh nghiệm tổng hợp tại các tập đoàn lớn và công ty luật hàng đầu Việt Nam.
         </p>
         <ul class="check-list">
-          <li><div class="check-icon">✓</div>Hơn 19 năm kinh nghiệm tranh tụng và tư vấn pháp lý doanh nghiệp</li>
+          <li><div class="check-icon">✓</div>Hơn 18 năm kinh nghiệm tranh tụng và tư vấn pháp lý doanh nghiệp</li>
           <li><div class="check-icon">✓</div>Từng đảm nhận pháp chế tại Agribank, BIBICA, PAN GROUP, VIFON, DCI</li>
           <li><div class="check-icon">✓</div>Thành viên Liên Đoàn Luật Sư Việt Nam &amp; Đoàn Luật Sư TP.HCM</li>
           <li><div class="check-icon">✓</div>Chuyên sâu M&amp;A, tái cơ cấu doanh nghiệp và tranh chấp giá trị lớn</li>
@@ -1762,7 +1762,7 @@ strong { font-weight: 600; }
           <div class="s-photo-vignette"></div>
         </div>
         <div class="s-photo">
-          <img src="images/team-vien2.png" alt="Phan Công Viên"/>
+          <img src="images/team-vien.png" alt="Phan Công Viên"/>
           <div class="s-photo-vignette"></div>
         </div>
         <div class="s-photo">
@@ -1967,7 +1967,7 @@ strong { font-weight: 600; }
         <div class="slider-controls">
           <div class="slider-thumbs" id="sliderThumbs">
             <div class="s-thumb on" data-i="0"><img src="images/team-hoa.png" alt="Nguyễn Minh Hòa"/></div>
-            <div class="s-thumb" data-i="1"><img src="images/team-vien2.png" alt="Phan Công Viên"/></div>
+            <div class="s-thumb" data-i="1"><img src="images/team-vien.png" alt="Phan Công Viên"/></div>
             <div class="s-thumb" data-i="2"><img src="images/team-ngoc.png" alt="Nguyễn Trường Ngọc"/></div>
             <div class="s-thumb" data-i="3"><img src="images/team-trang.png" alt="Nguyễn Thị Thu Trang"/></div>
             <div class="s-thumb" data-i="4"><img src="images/team-nga.png" alt="Bùi Thị Hằng Nga"/></div>
@@ -2113,12 +2113,13 @@ strong { font-weight: 600; }
       </div>
       <div class="contact-form anim-r">
         <h3>Gửi yêu cầu tư vấn</h3>
-        <form action="https://formsubmit.co/pnhlawfirm@gmail.com" method="POST">
-          <!-- FormSubmit config -->
-          <input type="hidden" name="_subject" value="[PNH LAW] Yêu cầu tư vấn mới">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://www.pnhlaw.vn/?sent=1">
+        <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+          <!-- Web3Forms config -->
+          <input type="hidden" name="access_key" value="c8d38f41-418f-4c04-8c8c-df77f3340acf">
+          <input type="hidden" name="subject" value="[PNH LAW] Yêu cầu tư vấn mới">
+          <input type="hidden" name="from_name" value="PNH LAW">
+          <input type="hidden" name="email_from" value="hieupc79@gmail.com">
+          <input type="hidden" name="redirect" value="https://www.pnhlaw.vn/?sent=1">
           <div class="form-row">
             <div class="form-group"><label>Họ và tên</label><input type="text" name="ho_ten" placeholder="Nguyễn Văn A" required/></div>
             <div class="form-group"><label>Số điện thoại</label><input type="tel" name="so_dien_thoai" placeholder="090 xxx xxxx" required/></div>
@@ -2315,6 +2316,56 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
   }).join('');
   grid.querySelectorAll('.anim').forEach(el => revIO.observe(el));
 })();
+
+/* ─── WEB3FORMS HANDLER ─── */
+const contactForm = document.getElementById('contactForm');
+if(contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const submitBtn = this.querySelector('.form-submit');
+    const originalText = submitBtn.textContent;
+    
+    try {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Đang gửi...';
+      
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if(response.ok) {
+        // Show success message
+        const formParent = contactForm.parentElement;
+        contactForm.innerHTML = `
+          <div style="text-align: center; padding: 40px 20px;">
+            <div style="font-size: 3rem; margin-bottom: 20px;">✅</div>
+            <h3 style="color: var(--gold); margin-bottom: 12px; font-family: 'Playfair Display', serif;">Gửi thành công!</h3>
+            <p style="color: rgba(255,255,255,.72); margin-bottom: 20px; line-height: 1.6;">
+              Cảm ơn bạn đã gửi yêu cầu tư vấn. Chúng tôi sẽ liên hệ lại trong vòng 24 giờ.
+            </p>
+            <p style="color: rgba(255,255,255,.5); font-size: 14px;">
+              📞 Hotline: 090 207 1412<br/>
+              ✉️ Email: pnhlawfirm@gmail.com
+            </p>
+          </div>
+        `;
+      } else {
+        alert('Lỗi gửi form. Vui lòng thử lại hoặc liên hệ trực tiếp: 090 207 1412');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    } catch(error) {
+      console.error('Form submission error:', error);
+      alert('Lỗi kết nối. Vui lòng thử lại hoặc liên hệ: 090 207 1412');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+}
+
 </script>
 </body>
 </html>
